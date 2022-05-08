@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:layout_marginBottom="@dimen/dp_8"
+        app:cardCornerRadius="@dimen/dp_16"
+        app:cardElevation="@dimen/dp_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/light_gray"
+        app:strokeWidth="@dimen/dp_1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10">
+
+            <View
+                android:id="@+id/textViewTitle"
+                android:layout_width="@dimen/dp_128"
+                android:layout_height="@dimen/dp_20"
+                android:background="@drawable/bg_rounded"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/textViewDescription"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/bg_rounded"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
+
+            <View
+                android:id="@+id/imageViewLanguage"
+                android:layout_width="@dimen/dp_16"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/bg_rounded"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
+
+            <View
+                android:id="@+id/textViewLanguage"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginStart="@dimen/dp_4"
+                android:background="@drawable/bg_rounded"
+                app:layout_constraintBottom_toBottomOf="@id/imageViewLanguage"
+                app:layout_constraintStart_toEndOf="@id/imageViewLanguage"
+                app:layout_constraintTop_toTopOf="@id/imageViewLanguage" />
+
+            <View
+                android:id="@+id/imageViewWatch"
+                android:layout_width="@dimen/dp_16"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/bg_rounded"
+                app:layout_constraintStart_toEndOf="@+id/textViewLanguage"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
+
+            <View
+                android:id="@+id/textViewWatch"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginStart="@dimen/dp_4"
+                android:background="@drawable/bg_rounded"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewWatch"
+                app:layout_constraintStart_toEndOf="@+id/imageViewWatch"
+                app:layout_constraintTop_toTopOf="@+id/imageViewWatch" />
+
+            <View
+                android:id="@+id/imageViewStar"
+                android:layout_width="@dimen/dp_16"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/bg_rounded"
+                app:layout_constraintStart_toEndOf="@id/textViewWatch"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
+
+            <View
+                android:id="@+id/textViewStar"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginStart="@dimen/dp_4"
+                android:background="@drawable/bg_rounded"
+                app:layout_constraintBottom_toBottomOf="@id/imageViewStar"
+                app:layout_constraintStart_toEndOf="@id/imageViewStar"
+                app:layout_constraintTop_toTopOf="@id/imageViewStar" />
+
+            <View
+                android:id="@+id/imageViewFork"
+                android:layout_width="@dimen/dp_16"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginStart="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/bg_rounded"
+                app:layout_constraintStart_toEndOf="@id/textViewStar"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
+
+            <View
+                android:id="@+id/textViewFork"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginStart="@dimen/dp_4"
+                android:background="@drawable/bg_rounded"
+                app:layout_constraintBottom_toBottomOf="@id/imageViewFork"
+                app:layout_constraintStart_toEndOf="@id/imageViewFork"
+                app:layout_constraintTop_toTopOf="@id/imageViewFork" />
+
+            <View
+                android:id="@+id/textViewUpdate"
+                android:layout_width="@dimen/dp_96"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/bg_rounded"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewWatch" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

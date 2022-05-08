@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Github Sample</string>
+
+    <!-- Error message -->
+    <string name="unexpected_error">Network connection failed. Please try again</string>
+    <string name="http_unavailable_error">The server is under maintenance, please visit again later.</string>
+    <string name="http_forbidden_error">Access is not allowed</string>
+    <string name="no_internet_error">Please check internet connection and try again</string>
+    <string name="error">Error</string>
+    <string name="rx_mapper_error">An error occurred, please try again later</string>
+    <string name="ok">OK</string>
+
+    <!-- Main -->
+    <string name="page">Page %s</string>
+    <string name="updated">Updated %s</string>
+    <string name="repositories">Repositories</string>
+</resources>
