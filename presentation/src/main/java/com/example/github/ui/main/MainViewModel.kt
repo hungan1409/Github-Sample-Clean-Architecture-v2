@@ -2,16 +2,14 @@ package com.example.github.ui.main
 
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.github.base.BaseViewModel
 import com.example.github.base.ModelItem
-import com.example.github.domain.model.Repo
 import com.example.github.domain.usecase.repo.GetReposUseCase
 import com.example.github.domain.usecase.user.GetUserUseCase
-import com.example.github.extension.add
 import com.example.github.model.*
-import com.example.github.util.RxUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.reactivex.SingleTransformer
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -69,41 +67,43 @@ class MainViewModel @Inject constructor(
     }
 
     fun getUser(id: String = USER_ID_DEFAULT) {
-        getUserUseCase.createObservable(GetUserUseCase.Params(id))
-            .compose(RxUtils.applySingleScheduler())
-            .subscribe({
-                user.value = userItemMapper.mapToPresentation(it)
-            }, {
+        viewModelScope.launch {
+            try {
+                user.value = userItemMapper.mapToPresentation(
+                    getUserUseCase.createObservable(
+                        GetUserUseCase.Params(id)
+                    )
+                )
+            } catch (e: Exception) {
                 isRefresh.value = false
-                setThrowable(it)
-            })
-            .add(this)
+            }
+        }
     }
 
     fun getRepos(id: String = USER_ID_DEFAULT, page: Int = FIRST_PAGE) {
         if ((nextPage == -1 || isLoading.value == true) && page != FIRST_PAGE) {
             return
         }
-        val transformer: SingleTransformer<List<Repo>, List<Repo>> = if (isRefresh.value == false) {
-            RxUtils.applySingleScheduler(isLoading)
-        } else {
-            RxUtils.applySingleScheduler()
-        }
-        getReposUseCase.createObservable(GetReposUseCase.Params(id, page))
-            .compose(transformer)
-            .subscribe({
-                if (it.isNullOrEmpty()) {
-                    nextPage = -1
+
+        viewModelScope.launch {
+            try {
+                if (isRefresh.value == false) {
+                    isLoading.value = true
+                }
+                val listRepo = getReposUseCase.createObservable(GetReposUseCase.Params(id, page))
+                isLoading.value = false
+                if (listRepo.isNullOrEmpty()) {
+                    nextPage = -1;
                 } else {
                     currentPage.value = page
                     nextPage = page + 1
-                    repos.value = it.map { repo -> repoItemMapper.mapToPresentation(repo) }
+                    repos.value = listRepo.map { repo -> repoItemMapper.mapToPresentation(repo) }
                 }
-            }, {
+            } catch (e: Exception) {
                 isRefresh.value = false
-                setThrowable(it)
-            })
-            .add(this)
+                isLoading.value = false
+            }
+        }
     }
 
     private fun clearToRefresh() {

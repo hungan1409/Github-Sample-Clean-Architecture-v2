@@ -5,8 +5,6 @@ import androidx.lifecycle.ViewModel
 import com.example.github.data.remote.exception.RetrofitException
 import com.example.github.domain.usecase.UseCase
 import com.example.github.util.SingleLiveData
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import timber.log.Timber
 import java.net.ConnectException
 import java.net.HttpURLConnection
@@ -16,8 +14,6 @@ import java.net.UnknownHostException
 abstract class BaseViewModel constructor(
     private vararg val useCases: UseCase<*, *>?
 ) : ViewModel() {
-
-    private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     val httpUnauthorized = SingleLiveData<Unit>()
 
@@ -41,10 +37,6 @@ abstract class BaseViewModel constructor(
 
     fun hideLoading() {
         isLoading.value = false
-    }
-
-    fun addDisposable(disposable: Disposable) {
-        compositeDisposable.add(disposable)
     }
 
     fun setThrowable(throwable: Throwable) {
@@ -125,7 +117,6 @@ abstract class BaseViewModel constructor(
     }
 
     override fun onCleared() {
-        compositeDisposable.dispose()
         useCases.let { userCases ->
             if (userCases.isNotEmpty()) userCases.forEach { it?.onCleared() }
         }

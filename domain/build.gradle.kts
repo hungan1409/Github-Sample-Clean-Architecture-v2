@@ -12,9 +12,9 @@ dependencies {
     implementation(Libs.stdLib)
     implementation(Libs.ktx)
 
-    // rx
-    implementation(Libs.rxJava)
-    implementation(Libs.rxAndroid)
+    // coroutines
+    implementation(Libs.coroutines)
+    implementation(Libs.coroutinesAndroid)
 
     // Hilt
     implementation(Libs.hiltCore)

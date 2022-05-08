@@ -2,7 +2,6 @@ package com.example.github.data.remote.builder
 
 import com.example.github.data.BuildConfig
 import com.example.github.data.HttpClient
-import com.example.github.data.remote.factory.RxErrorHandlingFactory
 import okhttp3.Authenticator
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -124,7 +123,6 @@ class RetrofitBuilder @Inject constructor() {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(clientBuilder.build())
-            .addCallAdapterFactory(RxErrorHandlingFactory())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

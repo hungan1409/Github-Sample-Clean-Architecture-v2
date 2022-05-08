@@ -4,16 +4,15 @@ import com.example.github.domain.Constants
 import com.example.github.domain.model.User
 import com.example.github.domain.repository.UserRepository
 import com.example.github.domain.usecase.UseCase
-import io.reactivex.Single
 import javax.inject.Inject
 
 open class GetUserUseCase @Inject constructor(
     private val userRepository: UserRepository
-) : UseCase<GetUserUseCase.Params, Single<User>>() {
+) : UseCase<GetUserUseCase.Params, User>() {
 
-    override fun createObservable(params: Params?): Single<User> {
+    override suspend fun createObservable(params: Params?): User {
         return when (params) {
-            null -> Single.error { Throwable(Constants.PARAMS_ERROR_MSG) }
+            null -> error { Throwable(Constants.PARAMS_ERROR_MSG) }
             else -> userRepository.getUser(params.id)
         }
     }

@@ -55,9 +55,9 @@ dependencies {
     // module
     implementation(project(Modules.domain))
 
-    // rx
-    implementation(Libs.rxAndroid)
-    implementation(Libs.rxJava)
+    // coroutines
+    implementation(Libs.coroutines)
+    implementation(Libs.coroutinesAndroid)
 
     // room database
     api(Libs.roomRuntime)

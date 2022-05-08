@@ -3,7 +3,8 @@ The Github Example
 
 Introduction
 -------------
-This is a sample application that build with combine use Clean Architecture framework and Github API (https://developer.github.com/v4/) for request and showing the information
+- This is a sample application that build with combine use Clean Architecture framework and Github API (https://developer.github.com/v4/) for request and showing the information
+- This is an update from v1 sample with using Hilt and Coroutines replace for Dagger v2 and RxJava.
 
 User interface
 -------------
@@ -52,8 +53,8 @@ Libraries
   * [Layout][35] - Lay out widgets using different algorithms.
 * Third party
   * [Glide][90] for image loading
-  * [ReactiveX][92] library for composing asynchronous and event-based programs by using observable sequences.
-  * [Dagger2][93] for dependencies injection 
+  * [Coroutines][92] A coroutine is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
+  * [Hilt][93] for dependencies injection 
   * [Retrofit][94] Type-safe HTTP client for Android
   * [EasyPermission][95]  is a wrapper library to simplify basic system permissions logic when targeting Android M or higher.
   * [CircleImageView][96]  a fast circular ImageView perfect for profile images.
@@ -79,8 +80,8 @@ Libraries
 [35]: https://developer.android.com/guide/topics/ui/declaring-layout
 [90]: https://bumptech.github.io/glide/
 [91]: https://kotlinlang.org/docs/reference/coroutines-overview.html
-[92]: https://github.com/ReactiveX
-[93]: https://github.com/google/dagger
+[92]: https://github.com/Kotlin/kotlinx.coroutines
+[93]: https://dagger.dev/hilt/
 [94]: https://github.com/square/retrofit
 [95]: https://github.com/googlesamples/easypermissions
 [96]: https://github.com/hdodenhof/CircleImageView

@@ -23,13 +23,12 @@ object Versions {
     internal const val mockWebserver = "3.8.1"
     internal const val robolectric = "4.3"
 
-    internal const val retrofit = "2.2.0"
+    internal const val retrofit = "2.9.0"
     internal const val okLogging = "3.9.0"
 
     internal const val constraintLaout = "2.0.0-beta2"
 
-    internal const val rxJava = "2.2.9"
-    internal const val rxAndroid = "2.1.0"
+    internal const val coroutines = "1.6.1"
 
     internal const val timber = "4.7.1"
 
@@ -142,9 +141,9 @@ object Libs {
         "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifecycleSaved}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
 
-    // RxKotlin & RxJava
-    const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
-    const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
+    // Coroutines
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 
     // retrofit
     const val retrofitRuntime = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"

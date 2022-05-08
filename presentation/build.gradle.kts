@@ -94,9 +94,9 @@ dependencies {
     // Glide
     implementation(Libs.glideRuntime)
 
-    // Rx
-    implementation(Libs.rxJava)
-    implementation(Libs.rxAndroid)
+    // coroutines
+    implementation(Libs.coroutines)
+    implementation(Libs.coroutinesAndroid)
 
     // Binding
     kapt(Libs.metadataJvm)
