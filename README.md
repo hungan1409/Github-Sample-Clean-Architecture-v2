@@ -13,6 +13,11 @@ The UI will have three parts: User information, page information and repos infor
 ![UI](images/home.png "Home screen")
 
 
+
+https://user-images.githubusercontent.com/43336844/167328936-94ca615c-333e-434c-9077-9d4560bab710.mp4
+
+
+
 How to build
 -------------
 * Check out the project.
