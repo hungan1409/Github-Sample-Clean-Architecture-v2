@@ -56,6 +56,7 @@ fun View.singleClickListener(singleClick: (() -> Unit)? = null, hiddenKeyboard: 
         isClickable = false
         when (hiddenKeyboard) {
             true -> context.showSoftKeyboard(false)
+            else -> {}
         }
 
         postDelayed({

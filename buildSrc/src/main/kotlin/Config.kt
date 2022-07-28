@@ -1,20 +1,21 @@
 object Versions {
-    const val kotlin = "1.6.0"
+    const val kotlin = "1.7.10"
     internal const val androidPlugin = "4.2.0"
 
-    internal const val androidxCore = "1.1.0"
+    internal const val androidxCore = "1.8.0"
     internal const val archCore = "2.1.0"
-    internal const val room = "2.4.0-alpha03"
-    internal const val lifecycle = "2.2.0-alpha04"
-    internal const val lifecycleSaved = "1.0.0-alpha04"
-    internal const val support = "1.1.0"
-    internal const val supportRecyclerView = "1.1.0-beta04"
-    internal const val supportRecyclerViewSelection = "1.1.0-alpha06"
-    internal const val supportCardView = "1.0.0"
-    internal const val supportLegacy = "1.0.0"
-    internal const val supportDesign = "1.1.0-alpha10"
+    internal const val room = "2.4.3"
+    internal const val lifecycle = "2.5.1"
+//    internal const val lifecycleSaved = "1.0.0-alpha04"
+    internal const val support = "1.4.2"
+//    internal const val supportRecyclerView = "1.1.0-beta04"
+//    internal const val supportRecyclerViewSelection = "1.1.0-alpha06"
+//    internal const val supportCardView = "1.0.0"
+//    internal const val supportLegacy = "1.0.0"
+    internal const val supportDesign = "1.6.1"
+    internal const val swipeRefresh = "1.1.0"
 
-    internal const val glide = "4.9.0"
+    internal const val glide = "4.13.2"
 
     internal const val junit = "4.12"
     internal const val mockito = "2.7.19"
@@ -24,26 +25,26 @@ object Versions {
     internal const val robolectric = "4.3"
 
     internal const val retrofit = "2.9.0"
-    internal const val okLogging = "3.9.0"
+    internal const val okLogging = "3.14.9"
 
     internal const val constraintLaout = "2.0.0-beta2"
 
-    internal const val coroutines = "1.6.1"
+    internal const val coroutines = "1.6.4"
 
-    internal const val timber = "4.7.1"
+    internal const val timber = "5.0.1"
 
     internal const val easyPermission = "3.0.0"
-    internal const val navigation = "2.2.0-alpha02"
-    internal const val navigationSafe = "2.1.0-alpha05"
+    internal const val navigation = "2.5.1"
+    internal const val navigationSafe = "2.5.1"
 
-    internal const val hilt = "2.38.1"
-    internal const val fragmentKtx = "1.3.0-alpha01"
+    internal const val hilt = "2.43"
+    internal const val fragmentKtx = "1.5.1"
 
     internal const val googleService = "4.3.0"
     internal const val fabric = "1.31.0"
 
     internal const val circleImageView = "3.1.0"
-    internal const val leakCanary = "2.4"
+    internal const val leakCanary = "2.9.1"
     internal const val shimmer = "0.5.0"
 }
 
@@ -63,7 +64,7 @@ object BuildPlugins {
 
 object Android {
     const val minSdk = 21
-    const val targetSdk = 31
+    const val targetSdk = 32
     const val applicationId = "com.example.github"
     const val versionCode = 1
     const val versionName = "1.0.0"
@@ -81,6 +82,7 @@ object GradlePlugins {
     const val fabric = "io.fabric"
     const val playService = "com.google.gms.google-services"
     const val hilt = "dagger.hilt.android.plugin"
+    const val parcelize = "kotlin-parcelize"
 }
 
 object Modules {
@@ -112,14 +114,14 @@ object Libs {
     // Support libs
     const val supportAnnotations = "androidx.annotation:annotation:${Versions.support}"
     const val supportAppCompat = "androidx.appcompat:appcompat:${Versions.support}"
-    const val supportRecyclerview =
-        "androidx.recyclerview:recyclerview:${Versions.supportRecyclerView}"
-    const val supportRecyclerviewSelection =
-        "androidx.recyclerview:recyclerview-selection:${Versions.supportRecyclerViewSelection}"
-    const val supportCardview = "androidx.cardview:cardview:${Versions.supportCardView}"
+//    const val supportRecyclerview =
+//        "androidx.recyclerview:recyclerview:${Versions.supportRecyclerView}"
+//    const val supportRecyclerviewSelection =
+//        "androidx.recyclerview:recyclerview-selection:${Versions.supportRecyclerViewSelection}"
+//    const val supportCardview = "androidx.cardview:cardview:${Versions.supportCardView}"
     const val supportDesign = "com.google.android.material:material:${Versions.supportDesign}"
-    const val supportLegacyV4 = "androidx.legacy:legacy-support-v4:${Versions.supportLegacy}"
-
+//    const val supportLegacyV4 = "androidx.legacy:legacy-support-v4:${Versions.supportLegacy}"
+    const val swipeRefresh = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefresh}"
     // Constraint Layout
     const val constraintlayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLaout}"
@@ -134,11 +136,12 @@ object Libs {
     const val lifecycleLiveDataKtx =
         "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel:${Versions.lifecycle}"
+    const val lifecycleViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val lifecycleJava8 = "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
     const val lifecycleSavedState =
-        "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifecycleSaved}"
+        "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifecycle}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
 
     // Coroutines

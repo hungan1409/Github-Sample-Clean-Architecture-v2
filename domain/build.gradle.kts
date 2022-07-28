@@ -10,7 +10,7 @@ apply {
 dependencies {
     // kotlin core
     implementation(Libs.stdLib)
-    implementation(Libs.ktx)
+//    implementation(Libs.ktx)
 
     // coroutines
     implementation(Libs.coroutines)

@@ -2,7 +2,7 @@ plugins {
     id(GradlePlugins.androidLib)
     kotlin(GradlePlugins.kotlinAndroid)
     kotlin(GradlePlugins.kotlinApt)
-    kotlin(GradlePlugins.kotlinExt)
+    id(GradlePlugins.parcelize)
     id(GradlePlugins.hilt)
 }
 
@@ -11,11 +11,11 @@ apply {
 }
 
 android {
-    compileSdkVersion(Android.targetSdk)
+    compileSdk = Android.targetSdk
 
     defaultConfig {
-        minSdkVersion(Android.minSdk)
-        targetSdkVersion(Android.targetSdk)
+        minSdk = Android.minSdk
+        targetSdk = Android.targetSdk
 
         testInstrumentationRunner = AndroidJUnit.runner
     }
@@ -65,7 +65,7 @@ dependencies {
 
     // Lifecycle
     implementation(Libs.lifecycleRuntime)
-    implementation(Libs.lifecycleExtensions)
+//    implementation(Libs.lifecycleExtensions)
     implementation(Libs.lifecycleJava8)
 
     // Retrofit
