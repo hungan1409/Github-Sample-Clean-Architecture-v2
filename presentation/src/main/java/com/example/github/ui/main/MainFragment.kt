@@ -1,12 +1,14 @@
 package com.example.github.ui.main
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.observe
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.github.R
@@ -26,17 +28,38 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>() {
 
     private var mainAdapter by autoCleared<MainAdapter>()
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    requireActivity().finishAfterTransition()
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        requireActivity().let { myActivity ->
+            myActivity.lifecycle.addObserver(object : DefaultLifecycleObserver {
+                override fun onCreate(owner: LifecycleOwner) {
+                    super.onCreate(owner)
+                    myActivity.onBackPressedDispatcher.addCallback(viewLifecycleOwner,
+                        object : OnBackPressedCallback(true) {
+                            override fun handleOnBackPressed() {
+                                myActivity.finishAfterTransition()
+                            }
+                        }
+                    )
+                    subscribeUI()
+                    viewModel.init()
                 }
-            })
-        subscribeUI()
-        viewModel.init()
+            }
+            )
+        }
     }
+
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
+//            object : OnBackPressedCallback(true) {
+//                override fun handleOnBackPressed() {
+//                    requireActivity().finishAfterTransition()
+//                }
+//            })
+//        subscribeUI()
+//        viewModel.init()
+//    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

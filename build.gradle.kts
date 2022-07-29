@@ -3,7 +3,7 @@ import java.net.URI
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven {
             url = uri(Url.fabric)
         }
@@ -22,7 +22,7 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven {
             url = URI.create(Url.jitpack)
         }

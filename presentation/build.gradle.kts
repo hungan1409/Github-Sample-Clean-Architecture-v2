@@ -2,7 +2,7 @@ plugins {
     id(GradlePlugins.android)
     kotlin(GradlePlugins.kotlinAndroid)
     kotlin(GradlePlugins.kotlinApt)
-    kotlin(GradlePlugins.kotlinExt)
+    id(GradlePlugins.parcelize)
     id(GradlePlugins.hilt)
 }
 
@@ -13,13 +13,13 @@ apply {
 }
 
 android {
-    compileSdkVersion(Android.targetSdk)
-    flavorDimensions("default")
+    compileSdk = Android.targetSdk
+    flavorDimensions.add("default")
 
     defaultConfig {
         applicationId = Android.applicationId
-        minSdkVersion(Android.minSdk)
-        targetSdkVersion(Android.targetSdk)
+        minSdk = Android.minSdk
+        targetSdk = Android.targetSdk
         versionCode = Android.versionCode
         versionName = Android.versionName
 
@@ -58,12 +58,9 @@ android {
         jvmTarget = "1.8"
     }
 
-    dataBinding {
-        isEnabled = true
-    }
 
-    androidExtensions {
-        isExperimental = true
+    buildFeatures {
+        dataBinding = true
     }
 }
 
@@ -74,22 +71,24 @@ dependencies {
 
     // support
     implementation(Libs.supportAppCompat)
-    implementation(Libs.supportAnnotations)
-    implementation(Libs.supportCardview)
+//    implementation(Libs.supportAnnotations)
+//    implementation(Libs.supportCardview)
     implementation(Libs.supportDesign)
-    implementation(Libs.supportRecyclerview)
-    implementation(Libs.supportRecyclerviewSelection)
-    implementation(Libs.supportLegacyV4)
+    implementation(Libs.swipeRefresh)
+//    implementation(Libs.supportRecyclerview)
+//    implementation(Libs.supportRecyclerviewSelection)
+//    implementation(Libs.supportLegacyV4)
 
     // lifecycle
-    implementation(Libs.lifecycleExtensions)
+//    implementation(Libs.lifecycleExtensions)
     implementation(Libs.lifecycleLiveDataKtx)
     implementation(Libs.lifecycleViewModel)
+    implementation(Libs.lifecycleViewModelKtx)
     implementation(Libs.lifecycleSavedState)
     implementation(Libs.fragmentKtx)
 
     // Constraint Layout
-    implementation(Libs.constraintlayout)
+//    implementation(Libs.constraintlayout)
 
     // Glide
     implementation(Libs.glideRuntime)
@@ -103,10 +102,10 @@ dependencies {
 
     // Hilt
     implementation(Libs.hilt)
-    implementation(Libs.hiltLifeCycle)
-    implementation(Libs.hiltNavigation)
+//    implementation(Libs.hiltLifeCycle)
+//    implementation(Libs.hiltNavigation)
     kapt(Libs.hiltCompiler)
-    kapt(Libs.hiltCompilerAndroidX)
+//    kapt(Libs.hiltCompilerAndroidX)
 
     implementation(Libs.retrofitGson)
     implementation(Libs.retrofitRuntime)
