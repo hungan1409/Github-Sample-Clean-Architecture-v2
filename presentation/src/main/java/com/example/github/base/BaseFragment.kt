@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.annotation.LayoutRes
 import androidx.annotation.Size
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -17,6 +18,7 @@ import com.example.github.BR
 import com.example.github.R
 import com.example.github.extension.showDialog
 import com.example.github.util.Permission
+import com.example.github.util.PermissionStatus
 import com.example.github.util.autoCleared
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.EasyPermissions
@@ -129,6 +131,22 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
                 context?.showDialog(message = message, positiveMessage = getString(R.string.ok))
         }
     }
+    //------------------------
+    //PERMISSIONS-------------
+    //------------------------
+
+    fun permissionApproved(): Boolean {
+        var approved = true
+        for (permission in getPermissionsArray()) {
+            if (PackageManager.PERMISSION_GRANTED !=
+                ActivityCompat.checkSelfPermission(requireContext(), permission)
+            ) approved = false
+        }
+        return approved
+    }
+
+    open fun getPermissionsArray(): Array<String> = arrayOf()
+    open fun requestRuntimePermissions(permissionStatus: PermissionStatus? = null) {}
 
     companion object {
         private const val PERMISSION_REQUEST_CODE = Activity.RESULT_FIRST_USER + 1
