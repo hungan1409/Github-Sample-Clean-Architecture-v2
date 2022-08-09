@@ -1,35 +1,11 @@
-import java.net.URI
 
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        maven {
-            url = uri(Url.fabric)
-        }
-    }
-
-    dependencies {
-        classpath(kotlin(module = "gradle-plugin", version = Versions.kotlin))
-        classpath(BuildPlugins.androidPlugin)
-        classpath(BuildPlugins.navigationSafe)
-        classpath(BuildPlugins.googleService)
-        classpath(BuildPlugins.fabric)
-        classpath(BuildPlugins.hilt)
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven {
-            url = URI.create(Url.jitpack)
-        }
-        maven {
-            url = uri(Url.fabric)
-        }
-    }
+plugins {
+    id(GradlePlugins.android) version Versions.application apply false
+    id(GradlePlugins.androidLib) version Versions.application apply false
+    id(GradlePlugins.jetbrainsKotlinAndroid) version Versions.kotlin apply false
+    id(GradlePlugins.jetbrainsKotlinJvm) version Versions.kotlin apply false
+    id(GradlePlugins.navigationSafe) version Versions.navigationSafe apply false
+    id(GradlePlugins.hilt) version Versions.hilt apply false
 }
 
 tasks.register("clean", Delete::class) {

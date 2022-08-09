@@ -1,14 +1,19 @@
 object Versions {
     const val kotlin = "1.7.10"
+    const val application = "7.2.1"
+    const val navigationSafe = "2.5.1"
+    const val hilt = "2.43"
     internal const val androidPlugin = "4.2.0"
 
     internal const val androidxCore = "1.8.0"
     internal const val archCore = "2.1.0"
     internal const val room = "2.4.3"
     internal const val lifecycle = "2.5.1"
-//    internal const val lifecycleSaved = "1.0.0-alpha04"
+
+    //    internal const val lifecycleSaved = "1.0.0-alpha04"
     internal const val support = "1.4.2"
-//    internal const val supportRecyclerView = "1.1.0-beta04"
+
+    //    internal const val supportRecyclerView = "1.1.0-beta04"
 //    internal const val supportRecyclerViewSelection = "1.1.0-alpha06"
 //    internal const val supportCardView = "1.0.0"
 //    internal const val supportLegacy = "1.0.0"
@@ -27,7 +32,7 @@ object Versions {
     internal const val retrofit = "2.9.0"
     internal const val okLogging = "3.14.9"
 
-    internal const val constraintLaout = "2.0.0-beta2"
+    internal const val constraintLayout = "2.1.4"
 
     internal const val coroutines = "1.6.4"
 
@@ -35,9 +40,6 @@ object Versions {
 
     internal const val easyPermission = "3.0.0"
     internal const val navigation = "2.5.1"
-    internal const val navigationSafe = "2.5.1"
-
-    internal const val hilt = "2.43"
     internal const val fragmentKtx = "1.5.1"
 
     internal const val googleService = "4.3.0"
@@ -48,19 +50,19 @@ object Versions {
     internal const val shimmer = "0.5.0"
 }
 
-object Url {
-    const val fabric = "https://maven.fabric.io/public"
-    const val jitpack = "https://jitpack.io"
-}
+//object Url {
+//    const val fabric = "https://maven.fabric.io/public"
+//    const val jitpack = "https://jitpack.io"
+//}
 
-object BuildPlugins {
-    const val androidPlugin = "com.android.tools.build:gradle:${Versions.androidPlugin}"
-    const val navigationSafe =
-        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigationSafe}"
-    const val googleService = "com.google.gms:google-services:${Versions.googleService}"
-    const val fabric = "io.fabric.tools:gradle:${Versions.fabric}"
-    const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
-}
+//object BuildPlugins {
+//    const val androidPlugin = "com.android.tools.build:gradle:${Versions.androidPlugin}"
+//    const val navigationSafe =
+//        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigationSafe}"
+//    const val googleService = "com.google.gms:google-services:${Versions.googleService}"
+//    const val fabric = "io.fabric.tools:gradle:${Versions.fabric}"
+//    const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
+//}
 
 object Android {
     const val minSdk = 21
@@ -72,16 +74,21 @@ object Android {
 
 object GradlePlugins {
     const val android = "com.android.application"
+    const val androidLib = "com.android.library"
     const val kotlin = "kotlin"
     const val kotlinAndroid = "android"
     const val kotlinExt = "android.extensions"
     const val kotlinApt = "kapt"
+    const val jetbrainsKotlinAndroid = "org.jetbrains.kotlin.android"
+    const val jetbrainsKotlinJvm = "org.jetbrains.kotlin.jvm"
     const val javaLib = "java-library"
-    const val androidLib = "com.android.library"
     const val navigationSafeKotlin = "androidx.navigation.safeargs.kotlin"
+    const val navigationSafe = "androidx.navigation.safeargs"
     const val fabric = "io.fabric"
     const val playService = "com.google.gms.google-services"
-    const val hilt = "dagger.hilt.android.plugin"
+
+    //    const val hilt = "dagger.hilt.android.plugin"
+    const val hilt = "com.google.dagger.hilt.android"
     const val parcelize = "kotlin-parcelize"
 }
 
@@ -110,21 +117,24 @@ object Libs {
     const val ktx = "androidx.core:core-ktx:${Versions.androidxCore}"
     const val archTesting = "androidx.arch.core:core-testing:${Versions.archCore}"
     const val stdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
-
     // Support libs
     const val supportAnnotations = "androidx.annotation:annotation:${Versions.support}"
     const val supportAppCompat = "androidx.appcompat:appcompat:${Versions.support}"
-//    const val supportRecyclerview =
+
+    //    const val supportRecyclerview =
 //        "androidx.recyclerview:recyclerview:${Versions.supportRecyclerView}"
 //    const val supportRecyclerviewSelection =
 //        "androidx.recyclerview:recyclerview-selection:${Versions.supportRecyclerViewSelection}"
 //    const val supportCardview = "androidx.cardview:cardview:${Versions.supportCardView}"
     const val supportDesign = "com.google.android.material:material:${Versions.supportDesign}"
-//    const val supportLegacyV4 = "androidx.legacy:legacy-support-v4:${Versions.supportLegacy}"
-    const val swipeRefresh = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefresh}"
+
+    //    const val supportLegacyV4 = "androidx.legacy:legacy-support-v4:${Versions.supportLegacy}"
+    const val swipeRefresh =
+        "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefresh}"
+
     // Constraint Layout
     const val constraintlayout =
-        "androidx.constraintlayout:constraintlayout:${Versions.constraintLaout}"
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
     // room database
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
@@ -136,7 +146,8 @@ object Libs {
     const val lifecycleLiveDataKtx =
         "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel:${Versions.lifecycle}"
-    const val lifecycleViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val lifecycleViewModelKtx =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val lifecycleJava8 = "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
