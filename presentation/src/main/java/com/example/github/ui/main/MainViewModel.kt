@@ -5,10 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.github.base.BaseViewModel
 import com.example.github.base.ModelItem
-import com.example.github.domain.model.Repo
 import com.example.github.domain.usecase.repo.GetReposUseCase
 import com.example.github.domain.usecase.user.GetUserUseCase
-import com.example.github.extension.tryWith
+import com.example.github.extension.tryWithSuspend
 import com.example.github.model.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -92,7 +91,7 @@ class MainViewModel @Inject constructor(
                 if (isRefresh.value == false) {
                     isLoading.value = true
                 }
-                val listRepo = tryWith {
+                val listRepo = tryWithSuspend {
                     getReposUseCase.createObservable(GetReposUseCase.Params(id, page))
                 }
                 isLoading.value = false
