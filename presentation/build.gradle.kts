@@ -10,6 +10,7 @@ apply {
     plugin(GradlePlugins.navigationSafeKotlin)
     from("../ktlint.gradle")
     from("jacoco.gradle")
+    from("auto-dimensions.gradle")
 }
 
 android {
